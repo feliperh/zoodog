@@ -55,18 +55,7 @@ List<ComentarioDTO> comentarioDTO = new ArrayList<ComentarioDTO>();
 
         return comentarioDTO;
 }
-@POST
-    @Path("/add")
-    public Response crearComentario(@FormParam("autor") String nombre,
-            @FormParam("comentario") String comentario) {
 
-        Comentario co = new Comentario();
-        co.setAutor(nombre);
-        co.setComentario(comentario);
-     
-        comentarioFacade.save(co);
-        return Response.status(Response.Status.ACCEPTED).build();
-    }
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
