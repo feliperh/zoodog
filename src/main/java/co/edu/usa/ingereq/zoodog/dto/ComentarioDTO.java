@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class ComentarioDTO {
     private String autor;
   
-    private String comentario;
+    private String texto;
 
     public String getAutor() {
         return autor;
@@ -29,13 +29,15 @@ public class ComentarioDTO {
         this.autor = autor;
     }
 
-    
-    public String getComentario() {
-        return comentario;
+    public String getTexto() {
+        return texto;
     }
 
-    public void setComentario(String comentario) {
-        this.comentario = comentario;
+    public void setTexto(String texto) {
+        this.texto = texto;
     }
+
+    
+   
     
 }

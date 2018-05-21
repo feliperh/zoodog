@@ -10,6 +10,7 @@ import co.edu.usa.ingereq.zoodog.facade.ComentarioFacade;
 import co.edu.usa.ingereq.zoodog.facade.DogFacade;
 import co.edu.usa.ingereq.zoodog.jpa.Comentario;
 import co.edu.usa.ingereq.zoodog.jpa.Dog;
+import static java.lang.System.console;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -46,9 +47,9 @@ List<ComentarioDTO> comentarioDTO = new ArrayList<ComentarioDTO>();
         for (Comentario comentario : comentarios) {
             ComentarioDTO dto = new ComentarioDTO();
             dto.setAutor(comentario.getAutor());
-            DateFormat df = new SimpleDateFormat("yy/dd/mm");
+          
             
-            dto.setComentario(comentario.getComentario());
+            dto.setTexto(comentario.getTexto());
            
             comentarioDTO.add(dto);
         }
@@ -59,11 +60,12 @@ List<ComentarioDTO> comentarioDTO = new ArrayList<ComentarioDTO>();
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public ComentarioDTO comentario(ComentarioDTO comentario) {
+    public ComentarioDTO addComentario(ComentarioDTO coment) {
         ComentarioDTO dto=null;
+ 
         Comentario comentarioJPA= new Comentario();
-        comentarioJPA.setAutor(comentario.getAutor());
-        comentarioJPA.setComentario(comentario.getComentario());
+        comentarioJPA.setAutor(coment.getAutor());
+        comentarioJPA.setTexto(coment.getTexto());
         comentarioFacade.save(comentarioJPA);
         
         return dto;

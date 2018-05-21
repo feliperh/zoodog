@@ -24,8 +24,7 @@ public class Comentario implements Serializable{
     @Id
     private int id;
     private String autor;
-
-    private String comentario;
+    private String texto;
 
 
     public int getId() {
@@ -44,16 +43,14 @@ public class Comentario implements Serializable{
         this.autor = autor;
     }
 
+    public String getTexto() {
+        return texto;
+    }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+
    
-    public String getComentario() {
-        return comentario;
-    }
-
-    public void setComentario(String comentario) {
-        this.comentario = comentario;
-    }
-
-
-    
 
 }
