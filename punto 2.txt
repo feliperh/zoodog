@@ -1,1 +1,1 @@
-https://stackblitz.com/edit/zoodog?file=src%2Fapp%2Fapp.component.html
+https://stackblitz.com/edit/zoodog

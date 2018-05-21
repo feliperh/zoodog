@@ -3,6 +3,7 @@
   <persistence-unit name="jpa" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>co.edu.usa.ingereq.zoodog.jpa.Dog</class>
+    <class>co.edu.usa.ingereq.zoodog.jpa.Comentario</class>
     
   </persistence-unit>
 </persistence>
