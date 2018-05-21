@@ -32,26 +32,18 @@ public ServicioComentario() {
 
 @GET
 @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-public List<Comentario> getDogs_JSON() {
+public List<Comentario> getComentarios_JSON() {
 List<Comentario> comentarios = comentarioFacade.findAll();
 return comentarios;
 }
 @POST
     @Path("/add")
     public Response crearComentario(@FormParam("autor") String nombre,
-            @FormParam("comentario") String comentario,
-            @FormParam("idperro") String idperro) {
+            @FormParam("comentario") String comentario) {
 
         Comentario co = new Comentario();
         co.setAutor(nombre);
         co.setComentario(comentario);
-        List<Dog> dogs = dogFacade.findAll();
-        for (Dog dog : dogs){
-            if(dog.getId()== Integer.parseInt(idperro)){
-                co.setDog(dog);
-            }
-        }
-        
 
         comentarioFacade.save(co);
         return Response.status(Response.Status.ACCEPTED).build();

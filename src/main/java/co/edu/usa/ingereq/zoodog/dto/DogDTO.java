@@ -13,16 +13,25 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author felip
  */
-@XmlRootElement(name = "dog")
+@XmlRootElement(name = "dogs")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DogDTO {
-
+    private int id; 
     private String name;
     private String gro;
     private String personality;
     private String energylevel;
     private String description;
     private String image;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     
     public String getName() {
         return name;

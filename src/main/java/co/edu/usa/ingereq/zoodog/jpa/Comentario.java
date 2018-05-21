@@ -26,9 +26,7 @@ public class Comentario implements Serializable{
     private String autor;
     private Date fecha;
     private String comentario;
-    @ManyToOne
-    @JoinColumn(name = "id")
-    private Dog dog;
+
 
     public int getId() {
         return id;
@@ -62,13 +60,7 @@ public class Comentario implements Serializable{
         this.comentario = comentario;
     }
 
-    public Dog getDog() {
-        return dog;
-    }
 
-    public void setDog(Dog dog) {
-        this.dog = dog;
-    }
     
 
 }

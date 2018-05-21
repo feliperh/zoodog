@@ -36,6 +36,7 @@ public List<DogDTO> getDogs_JSON() {
         List<Dog> dogs = dogfacade.findAll();
         for (Dog dog : dogs) {
             DogDTO dto = new DogDTO();
+            dto.setId(dog.getId());
             dto.setName(dog.getName());
             dto.setGro(dog.getGro());
             dto.setEnergylevel(dog.getEnergylevel());
@@ -51,8 +52,18 @@ public List<DogDTO> getDogs_JSON() {
 @GET
 @Path("/{usrNo}")
 @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-public Dog getUsuario(@PathParam("usrNo") int usrNo) {
-    return dogfacade.get(usrNo);
+public DogDTO getUsuario(@PathParam("usrNo") String usrNo) {
+    Dog dog=dogfacade.get(Integer.parseInt(usrNo));
+    
+            DogDTO dto = new DogDTO();
+            dto.setName(dog.getName());
+            dto.setGro(dog.getGro());
+            dto.setEnergylevel(dog.getEnergylevel());
+            dto.setPersonality(dog.getPersonality());
+            dto.setDescription(dog.getDescription());
+            dto.setImage(dog.getImage());
+            
+    return dto;
 }
 
 }
