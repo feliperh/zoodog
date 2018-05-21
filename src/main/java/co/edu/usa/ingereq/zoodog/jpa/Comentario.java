@@ -24,7 +24,7 @@ import javax.persistence.Table;
 @Table(name="Comentario")
 public class Comentario implements Serializable{
     @Id
-    
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String autor;
     private String texto;
