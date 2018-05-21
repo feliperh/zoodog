@@ -24,7 +24,7 @@ public class Comentario implements Serializable{
     @Id
     private int id;
     private String autor;
-    private Date fecha;
+
     private String comentario;
 
 
@@ -44,14 +44,7 @@ public class Comentario implements Serializable{
         this.autor = autor;
     }
 
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
-
+   
     public String getComentario() {
         return comentario;
     }

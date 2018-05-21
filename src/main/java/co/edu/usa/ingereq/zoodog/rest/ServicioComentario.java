@@ -46,7 +46,7 @@ List<ComentarioDTO> comentarioDTO = new ArrayList<ComentarioDTO>();
             ComentarioDTO dto = new ComentarioDTO();
             dto.setAutor(comentario.getAutor());
             DateFormat df = new SimpleDateFormat("yy/dd/mm");
-            dto.setFecha(df.format(comentario.getFecha()));
+            
             dto.setComentario(comentario.getComentario());
            
             comentarioDTO.add(dto);
@@ -62,7 +62,7 @@ List<ComentarioDTO> comentarioDTO = new ArrayList<ComentarioDTO>();
         Comentario co = new Comentario();
         co.setAutor(nombre);
         co.setComentario(comentario);
-        co.setFecha(null);
+     
         comentarioFacade.save(co);
         return Response.status(Response.Status.ACCEPTED).build();
     }

@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ComentarioDTO {
     private String autor;
-    private String fecha;
+  
     private String comentario;
 
     public String getAutor() {
@@ -29,14 +29,7 @@ public class ComentarioDTO {
         this.autor = autor;
     }
 
-    public String getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-
+    
     public String getComentario() {
         return comentario;
     }
