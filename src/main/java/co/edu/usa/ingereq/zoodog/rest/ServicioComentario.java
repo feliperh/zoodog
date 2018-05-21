@@ -60,11 +60,12 @@ List<ComentarioDTO> comentarioDTO = new ArrayList<ComentarioDTO>();
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public ComentarioDTO comentario(ComentarioDTO comentario) {
+        ComentarioDTO dto=null;
         Comentario comentarioJPA= new Comentario();
         comentarioJPA.setAutor(comentario.getAutor());
         comentarioJPA.setComentario(comentario.getComentario());
         comentarioFacade.save(comentarioJPA);
         
-        return comentario;
+        return dto;
     }
 }
