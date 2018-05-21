@@ -10,7 +10,10 @@ import co.edu.usa.ingereq.zoodog.facade.ComentarioFacade;
 import co.edu.usa.ingereq.zoodog.facade.DogFacade;
 import co.edu.usa.ingereq.zoodog.jpa.Comentario;
 import co.edu.usa.ingereq.zoodog.jpa.Dog;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -42,7 +45,8 @@ List<ComentarioDTO> comentarioDTO = new ArrayList<ComentarioDTO>();
         for (Comentario comentario : comentarios) {
             ComentarioDTO dto = new ComentarioDTO();
             dto.setAutor(comentario.getAutor());
-            dto.setFecha(comentario.getFecha());
+            DateFormat df = new SimpleDateFormat("yy/dd/mm");
+            dto.setFecha(df.format(comentario.getFecha()));
             dto.setComentario(comentario.getComentario());
            
             comentarioDTO.add(dto);
@@ -58,7 +62,7 @@ List<ComentarioDTO> comentarioDTO = new ArrayList<ComentarioDTO>();
         Comentario co = new Comentario();
         co.setAutor(nombre);
         co.setComentario(comentario);
-
+        co.setFecha(null);
         comentarioFacade.save(co);
         return Response.status(Response.Status.ACCEPTED).build();
     }
