@@ -5,10 +5,12 @@
  */
 package co.edu.usa.ingereq.zoodog.rest;
 
+import co.edu.usa.ingereq.zoodog.dto.ComentarioDTO;
 import co.edu.usa.ingereq.zoodog.facade.ComentarioFacade;
 import co.edu.usa.ingereq.zoodog.facade.DogFacade;
 import co.edu.usa.ingereq.zoodog.jpa.Comentario;
 import co.edu.usa.ingereq.zoodog.jpa.Dog;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -32,9 +34,21 @@ public ServicioComentario() {
 
 @GET
 @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-public List<Comentario> getComentarios_JSON() {
-List<Comentario> comentarios = comentarioFacade.findAll();
-return comentarios;
+public List<ComentarioDTO> getComentarios_JSON() {
+
+List<ComentarioDTO> comentarioDTO = new ArrayList<ComentarioDTO>();
+      
+        List<Comentario> comentarios = comentarioFacade.findAll();
+        for (Comentario comentario : comentarios) {
+            ComentarioDTO dto = new ComentarioDTO();
+            dto.setAutor(comentario.getAutor());
+            dto.setFecha(comentario.getFecha());
+            dto.setComentario(comentario.getComentario());
+           
+            comentarioDTO.add(dto);
+        }
+
+        return comentarioDTO;
 }
 @POST
     @Path("/add")
