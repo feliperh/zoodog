@@ -59,9 +59,12 @@ List<ComentarioDTO> comentarioDTO = new ArrayList<ComentarioDTO>();
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public Comentario comentario(Comentario comentario) {
-   
+    public ComentarioDTO comentario(Comentario comentario) {
+        ComentarioDTO dto= new ComentarioDTO();
+        dto.setAutor(comentario.getAutor());
+        dto.setComentario(comentario.getComentario());
         comentarioFacade.save(comentario);
-        return comentario;
+        
+        return dto;
     }
 }
