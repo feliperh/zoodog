@@ -15,6 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -65,5 +66,13 @@ List<ComentarioDTO> comentarioDTO = new ArrayList<ComentarioDTO>();
      
         comentarioFacade.save(co);
         return Response.status(Response.Status.ACCEPTED).build();
+    }
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    public Comentario comentario(Comentario comentario) {
+   
+        comentarioFacade.save(comentario);
+        return comentario;
     }
 }
